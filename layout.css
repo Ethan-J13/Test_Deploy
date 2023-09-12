@@ -1,0 +1,200 @@
+body {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.LI-profile-badge {
+    margin: 1%;
+    margin-top: 2%;
+}
+
+.game {
+    background-color: rgb(19, 19, 19);
+    border-radius: 25px;
+    /* height: 30vh; */
+    /* width: 90vw; */
+    padding: 2%;
+    margin: 1%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.gameTitle {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.gameType {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.gamePlatforms {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.gameLinks {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.notables {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.gameDesc {
+    grid-column: 2;
+    grid-row: 1 /span 3;
+}
+
+/* Slideshow container */
+.slideshow {
+    width: 100%;
+    height: 100%;
+    grid-row: 1 /span 4;
+    grid-column: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hide the images by default */
+.slide {
+    display: none;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    /* position: relative; */
+    /* display: inline; */
+    top: -50%;
+    width: 3%;
+    padding: 5%;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Position the "next button" to the right */
+.prev {
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: .5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .game {
+        /* height: 90vh; */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .gameTitle {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .gameType {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .gamePlatforms {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .gameLinks {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .notables {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .gameDesc {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 2;
+    }
+
+    .slideshow {
+        grid-row: 5;
+        grid-column: 1 / span 2;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #00000000;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101010;
+    border-radius: 10px;
+}
