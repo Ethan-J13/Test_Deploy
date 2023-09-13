@@ -1,11 +1,17 @@
 body {
     background-color: rgb(26, 26, 26);
+
     color: white;
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+.bgimage {
+    /* background-color: rgb(221, 65, 65); */
+    background-image: "/images/2-6787-vancouver-skyline-2100x1000.webp";
 }
 
 .LI-profile-badge {
