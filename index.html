@@ -10,11 +10,19 @@
     <link href="/css/layout.css" rel="stylesheet" type="text/css" />
     <link href="/css/item.css" rel="stylesheet" type="text/css" />
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <img src="/images/VanSkylineCrop.jpg" alt="Italian Trulli2">
-    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="ethan-johnston-59a12927b" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ethan-johnston-59a12927b?trk=profile-badge"></a></div>
+    <div class="header_image">
+        <!-- <img src="/images/VanSkylineCrop.jpg" alt="Italian Trulli2"> -->
+        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="ethan-johnston-59a12927b" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ethan-johnston-59a12927b?trk=profile-badge"></a></div>
+    </div>
+
+    <div class="rectangle"></div>
+    
     <div class="game">
         <h2 class="gameTitle">BCIT Tech Collider</h2>
         <h3 class="gameLinks"><a href="https://www.bcit.ca/tech-collider/">https://www.bcit.ca/tech-collider/</a></h3>
@@ -28,8 +36,91 @@
             during the opening ceremony of the tech collider <a
                 href="https://twitter.com/MicrosoftVan/status/1624169346758242304?s=20">to cut the digital ribbon</a>
         </p>
-        <!-- <div id="tcSlideshow" class="slideshow"></div> -->
+        <div id="tcSlideshow" class="slideshow"></div>
     </div>
+
+    <div class="rectangle"></div>
+
+    <div class="game">
+        <h2 class="gameTitle">BCIT Tech Collider</h2>
+        <h3 class="gameLinks"><a href="https://www.bcit.ca/tech-collider/">https://www.bcit.ca/tech-collider/</a></h3>
+        <h3 class="gameType">Tech Collider Screen</h3>
+        <h3 class="gamePlatforms">BCIT</h3>
+        <p class="gameDesc">I worked with Promp Inc.(ReachXR) to create applications for the 32ft by 8ft motion tracking
+            screen in the BCIT downtown campus tech collider. I created a system to map the tracking
+            information onto ReadyPlayerMe avatars so people can see themselves on the screen, as well as a few miscellaneous
+            apps and games.</p>
+        <p class="notables">Selena Robinson (minister of post secondary education and future skills) used one of my apps
+            during the opening ceremony of the tech collider <a
+                href="https://twitter.com/MicrosoftVan/status/1624169346758242304?s=20">to cut the digital ribbon</a>
+        </p>
+        <div></div>
+        <div id="tcSlideshow" class="slideshow"></div>
+    </div>
+
+    <script>
+        let slideshowDefs = {
+            // labratSlideshow: ["images/portfolio/labratheader.jpg", "https://bezbrogames.com/img/labrat/screenshot0.png", "https://bezbrogames.com/img/labrat/screenshot1.png", "https://bezbrogames.com/img/labrat/screenshot2.png", "https://cdn.cloudflare.steamstatic.com/steam/apps/1402020/ss_8c1389720213c84bae60578f99954aab738e34b7.jpg", "https://cdn.cloudflare.steamstatic.com/steam/apps/1402020/ss_ca63d43fb538eb800e46cfbe2c7e883c9d63e423.jpg"],
+            tcSlideshow: ["/images/Minister_Pic_Collider.jpg", "images/Team_Pic_Collider.jpg"],
+            // ablefordSlideshow: ["images/portfolio/HeaderCapsule.png", "images/portfolio/cafe.png", "images/portfolio/classroom.png", "images/portfolio/keith.png", "images/portfolio/paul.png", "images/portfolio/purple kid.png", "images/portfolio/spooky.png"],
+            // bgsiteSlideshow: ["images/portfolio/bg-1.png", "images/portfolio/bg-2.png", "images/portfolio/bg-3.png", "images/portfolio/bg-4.png"],
+            // santaSlideshow: ["https://img.itch.zone/aW1nLzc2NTE1OTUucG5n/315x250%23c/Qx65P1.png", "https://img.itch.zone/aW1hZ2UvMTMxNjA3Ny83NjU5MzI4LnBuZw==/347x500/1LdsOQ.png", "https://img.itch.zone/aW1hZ2UvMTMxNjA3Ny83NjU5MzI2LnBuZw==/347x500/hTLnmN.png", "https://img.itch.zone/aW1hZ2UvMTMxNjA3Ny83NjU5MzI0LnBuZw==/347x500/Wxu%2F3G.png"],
+        } // TODO: change local directories
+
+        function populateSlideshows() {
+            document.querySelectorAll('.slideshow').forEach(node => {
+                node.innerHTML += `<div class="prev" onclick="plusSlides(-1, '${node.id}')"><p>&#10094;</p></div>`
+
+                for (i in slideshowDefs[node.id]) {
+                    let slide = document.createElement('div');
+                    slide.className = "slide fade"
+                    let img = document.createElement('img');
+                    img.src = slideshowDefs[node.id][i]
+                    slide.appendChild(img)
+                    node.append(slide)
+                }
+                node.innerHTML += `<div class="next" onclick="plusSlides(1, '${node.id}')"><p>&#10095;</p></div>`
+
+                slideIndex[node.id] = 1;
+                showSlides(1, node.id)
+            })
+        }
+
+        let slideIndex = {};
+
+        // Next/previous controls
+        function plusSlides(n, id) {
+            showSlides(slideIndex[id] += n, id);
+        }
+
+        // Thumbnail image controls
+        function setSlide(n, id) {
+            showSlides(slideIndex[id] = n, id);
+        }
+
+        function showSlides(n, id) {
+            let i;
+            // let slides = document.getElementsByClassName("mySlides");
+            // let dots = document.getElementsByClassName("dot");
+
+            console.log(id)
+            let slides = document.querySelectorAll(`#${id} .slide`);
+
+            console.log(slides)
+
+            if (n > slides.length) { slideIndex[id] = 1 }
+            if (n < 1) { slideIndex[id] = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex[id] - 1].style.display = "flex";
+        }
+
+        populateSlideshows();
+    </script>
+
+
 </body>
 
 </html>
