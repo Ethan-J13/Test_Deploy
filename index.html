@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
         <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="ethan-johnston-59a12927b" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ethan-johnston-59a12927b?trk=profile-badge"></a></div>
     </div>
 
-    <div class="rectangle"></div>
+    <div class="separator"></div>
     
     <div class="game">
         <h2 class="gameTitle">BCIT Tech Collider</h2>
@@ -39,7 +40,7 @@
         <div id="tcSlideshow" class="slideshow"></div>
     </div>
 
-    <div class="rectangle"></div>
+    <div class="separator"></div>
 
     <div class="game">
         <h2 class="gameTitle">BCIT Tech Collider</h2>
@@ -59,6 +60,20 @@
     </div>
 
     <script>
+        $(document).ready(function(){
+            $(".next").hover(function(){
+                $(this, ".next_arrow").css("color", "white");
+                }, function(){
+                $(this, ".next_arrow").css("color", "#9c9c9c");
+            });
+
+            $(".prev").hover(function(){
+                $(this, ".prev_arrow").css("color", "white");
+                }, function(){
+                $(this, ".prev_arrow").css("color", "#9c9c9c");
+            });
+        });
+
         let slideshowDefs = {
             // labratSlideshow: ["images/portfolio/labratheader.jpg", "https://bezbrogames.com/img/labrat/screenshot0.png", "https://bezbrogames.com/img/labrat/screenshot1.png", "https://bezbrogames.com/img/labrat/screenshot2.png", "https://cdn.cloudflare.steamstatic.com/steam/apps/1402020/ss_8c1389720213c84bae60578f99954aab738e34b7.jpg", "https://cdn.cloudflare.steamstatic.com/steam/apps/1402020/ss_ca63d43fb538eb800e46cfbe2c7e883c9d63e423.jpg"],
             tcSlideshow: ["/images/Minister_Pic_Collider.jpg", "images/Team_Pic_Collider.jpg"],
@@ -69,7 +84,7 @@
 
         function populateSlideshows() {
             document.querySelectorAll('.slideshow').forEach(node => {
-                node.innerHTML += `<div class="prev" onclick="plusSlides(-1, '${node.id}')"><p>&#10094;</p></div>`
+                node.innerHTML += `<div class="prev" onclick="plusSlides(-1, '${node.id}')"><p class="prev_arrow">&#10094;</p></div>`
 
                 for (i in slideshowDefs[node.id]) {
                     let slide = document.createElement('div');
@@ -79,7 +94,7 @@
                     slide.appendChild(img)
                     node.append(slide)
                 }
-                node.innerHTML += `<div class="next" onclick="plusSlides(1, '${node.id}')"><p>&#10095;</p></div>`
+                node.innerHTML += `<div class="next" onclick="plusSlides(1, '${node.id}')"><p class="next_arrow">&#10095;</p></div>`
 
                 slideIndex[node.id] = 1;
                 showSlides(1, node.id)
