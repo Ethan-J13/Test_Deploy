@@ -25,8 +25,8 @@ body {
 
 .LI-profile-badge {
     margin: 1%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-top: 1%;
+    margin-bottom: 2%;
     margin-left: 1%;
     /* margin-left: 80%; */
 }
@@ -43,7 +43,7 @@ body {
     border-radius: 4px;
 }
 
-.game {
+.item {
     background-color: rgb(255, 255, 255); 
     /* border: 2px solid black;
     box-shadow: 4px 8px 5px  #727272; */
@@ -51,47 +51,54 @@ body {
     /* height: 30vh; */
     
     /* width: 70vw; */
-    /* padding-left: 12%;
-    padding-right: 2%; */
-
-    padding: 2%;
-
-    margin: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    /* padding: 2%;*/
+    margin: 1%; 
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 14% 14% 14% 14% 14% 15% 15%;
 }
 
-.gameTitle {
+.itemTitle {
     grid-column: 2 /span 3;
     grid-row: 1;
     font-size: xx-large;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    align-self: center;
 }
 
-/* .gameType {
+/* .itemType {
     grid-column: 2;
     grid-row: 2;
 } */
 /* 
-.gamePlatforms {
+.itemPlatforms {
     grid-column: 2;
     grid-row: 3;
 } */
 
-.gameLinks {
+.itemLinks {
     grid-column: 2;
     grid-row: 2;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    align-self: center;
+}
+
+.description {
+    grid-column: 2 /span 3;
+    grid-row: 3 /span 6;
+    font-size: large;
+    margin-bottom: 0%;
 }
 
 .notables {
     grid-column: 2 /span 3;
     grid-row: 7;
-}
-
-.gameDesc {
-    grid-column: 2 /span 3;
-    grid-row: 3 /span 6;
-    font-size: large;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 /* Slideshow container */
@@ -115,6 +122,8 @@ body {
     max-width: 100%;
     max-height: 100%;
     height: auto;
+    border-radius: 10px;
+    outline: 1px solid black;
 }
 /* 
 .arrow {
@@ -190,33 +199,34 @@ body {
     }
 }
 
-@media only screen and (max-width: 800px) {
-    .game {
+@media only screen and (max-width: 1100px) {
+    .item {
         /* height: 90vh; */
         display: flex;
         flex-direction: column;
         overflow: hidden;
     }
 
-    .gameTitle {
+    .itemTitle {
         grid-column: 1;
         grid-row: 1;
         font-size: x-large;
     }
 
-    .gameType {
+    /* .itemType {
         grid-column: 1;
         grid-row: 4;
     }
 
-    .gamePlatforms {
+    .itemPlatforms {
         grid-column: 2;
         grid-row: 2;
-    }
+    } */
 
-    .gameLinks {
+    .itemLinks {
         grid-column: 1;
         grid-row: 5;
+        margin: 0%;
     }
 
     .notables {
@@ -224,7 +234,7 @@ body {
         grid-row: 3;
     }
 
-    .gameDesc {
+    .itemDesc {
         grid-column: 1 / span 2;
         grid-row: 2 / span 2;
         font-size: medium;
